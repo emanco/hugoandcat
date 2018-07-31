@@ -1,0 +1,98 @@
+@import "./../../../scss/base/2_mixins.scss";
+
+.products-container {
+
+  .item {
+
+    position: relative;
+
+    .inner {
+      border: 1px solid #f2f2f2;
+      position:relative;
+      left: 0;
+      top: 0;
+      width: 100%;
+      padding: 20px;
+      z-index: 0;
+      background-color: #fff;
+      transition: all 0.3s ease-out;
+
+      @include xs {
+        height: auto;
+        padding-bottom: 150px;
+      }
+
+      @include sm {
+        height: auto;
+        padding-bottom: 150px;
+      }
+
+      @include md {
+        //height: 330px;
+        padding-bottom: 160px;
+      }
+
+      .picture {
+        width: 100%;
+        padding-top: 100%;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+
+      .product-infos {
+        margin-top: 1em;
+        position: absolute;
+        bottom: 10px;
+        width: calc(100% - 40px);
+
+        height: 150px;
+
+        @include md {
+          height: 160px;
+        }
+
+        a {
+          color: #000;
+          &:hover {
+            color: #222222;
+          }
+        }
+
+        p {
+          font-size: 15px;
+        }
+
+        span {
+          font-size: 12px;
+          text-transform: uppercase;
+          font-weight: 200;
+          line-height: 1em;
+          margin: 1em 0;
+          display: inline-block;
+        }
+
+        .price {
+          width: 100%;
+          text-align: right;
+          font-weight: 400;
+          font-size: 1.2em;
+
+          position: absolute;
+          bottom: 0;
+        }
+      }
+    }
+
+
+    &:hover {
+      .inner {
+        transform: scale(1.15);
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+    }
+
+  }
+  
+}
