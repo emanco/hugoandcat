@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {location} from '../../constants/endpoints';
 
 import './scss/search.css';
 
@@ -31,13 +32,13 @@ class SearchView extends Component {
     }
 
     componentWillMount() {
-        this.setState({location: this.props.match.params.location});
+        this.setState({location: this.props.match.params.location !== undefined ? this.props.match.params.location : location});
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.location.pathname !== this.props.location.pathname) {
             //console.log('next props: '+nextProps.location.pathname);
-            this.setState({location: nextProps.match.params.location});
+            this.setState({location: nextProps.match.params.location !== undefined ? nextProps.match.params.location : location});
         }
     }
 
