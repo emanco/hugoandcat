@@ -37,7 +37,7 @@
       text-align: center;
       z-index: 0;
       margin: 3px;
-      padding: 50px 40px 140px 40px;
+      padding: 50px 10px 145px 10px;
 
       //padding-top: 200%;
       //height: 1px;
@@ -45,7 +45,7 @@
       &:before {
         content: '';
         position: absolute;
-        bottom: -4.5em;
+        bottom: -5.5em;
         left: -4em;
         width: 18em;
         height: 18em;
@@ -204,7 +204,8 @@
       font-size: 5.5em;
       font-weight: 600;
       letter-spacing: -0.01em;
-      line-height: 1em;
+      line-height: 0.95em;
+      margin-bottom: 0;
 
       &:after {
         font-weight: 100;
@@ -218,7 +219,8 @@
     @include has('fahrenheit') {
       color: #fff;
       font-family: $font;
-      font-size: 1.3em;
+      font-size: 1.4em;
+      font-weight: 100;
 
       &:after {
         font-weight: 100;

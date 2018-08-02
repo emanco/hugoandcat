@@ -280,11 +280,11 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     z-index: 0;
     margin: 3px;
-    padding: 50px 40px 140px 40px; }
+    padding: 50px 10px 145px 10px; }
     .forecast .forecast__wrapper:before, .forecast .forecast__wrapper--clearsky:before, .forecast .forecast__wrapper--fewclouds:before, .forecast .forecast__wrapper--scatteredclouds:before, .forecast .forecast__wrapper--brokenclouds:before, .forecast .forecast__wrapper--overcastclouds:before, .forecast .forecast__wrapper--showerrain:before, .forecast .forecast__wrapper--lightrain:before, .forecast .forecast__wrapper--moderaterain:before, .forecast .forecast__wrapper--rain:before, .forecast .forecast__wrapper--thunderstorm:before, .forecast .forecast__wrapper--snow:before, .forecast .forecast__wrapper--mist:before {
       content: '';
       position: absolute;
-      bottom: -4.5em;
+      bottom: -5.5em;
       left: -4em;
       width: 18em;
       height: 18em;
@@ -577,7 +577,8 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 5.5em;
     font-weight: 600;
     letter-spacing: -0.01em;
-    line-height: 1em; }
+    line-height: 0.95em;
+    margin-bottom: 0; }
     .forecast .forecast__celsius:after {
       font-weight: 100;
       content: '°c';
@@ -586,7 +587,8 @@ h1, h2, h3, h4, h5, h6 {
   .forecast .forecast__fahrenheit {
     color: #fff;
     font-family: "Roboto";
-    font-size: 1.3em; }
+    font-size: 1.4em;
+    font-weight: 100; }
     .forecast .forecast__fahrenheit:after {
       font-weight: 100;
       content: '°F'; }

@@ -54,7 +54,7 @@
   Icon Container sizing
 */
 .main {
-  padding: 20px;
+  padding: 0 20px;
   min-height: 20vh;
   /**
    * main
@@ -71,5 +71,6 @@
       width: 100%;
       height: 100%; }
     .main .main__notice {
+      padding: 40px 20px;
       font-size: 1.5em;
       text-align: center; }
