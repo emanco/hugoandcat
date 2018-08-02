@@ -1,31 +1,27 @@
 @import "./2_mixins.scss";
 
 .main {
-  padding: 8em 20px 20px 20px;
+  padding: 20px;
   min-height: 20vh;
 
-  .loading {
-    margin: 0 auto;
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    height: 100%;
+  .row {
+    margin: -3px;
   }
 
-  @include xs {
-    padding-top: 12em;
-  }
+  @include new('main', 'Search Form') {
+    height: 4em;
 
-  @include sm {
-    padding-top: 8em;
-  }
+    @include has('loading') {
+      margin: 0 auto;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+    }
 
-  @include md {
-    padding-top: 8em;
-  }
-
-  .notice {
-    font-size: 1.5em;
-    text-align: center;
+    @include has('notice') {
+      font-size: 1.5em;
+      text-align: center;
+    }
   }
 }

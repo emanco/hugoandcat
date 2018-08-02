@@ -24,17 +24,21 @@ class ForecastView extends Component {
             }
         };
 
+        const $wrapper = "forecast__wrapper forecast__wrapper--"+($this.props.data[0].description.replace(/\s/g, "")),
+              $icon = "forecast__icon forecast__icon--"+($this.props.data[0].description.replace(/\s/g, ""));
+
         return (
 
-            <div>
-                <Moment format="dddd Do" date={$this.props.data[0].date} filter={toToday}/>
-                <h4>{$this.props.data[0].title}</h4>
-                <p>{$this.props.data[0].description}</p>
-                <div>{$this.props.data[0].averageTemp} Celsius</div>
-                <div>{Math.round($this.props.data[0].averageTemp * 1.8+32)} Fahrenheit</div>
-                <div>{$this.props.data[0].icon}</div>
-                <hr/>
-            </div>
+            <section className="col-md-3 forecast">
+                <div className={$wrapper}>
+                    <Moment format="dddd Do" date={$this.props.data[0].date} filter={toToday} className="forecast__day"/>
+                    {/*<h4 className="forecast__title">{$this.props.data[0].title}</h4>*/}
+                    <div className={$icon}></div>
+                    <p className="forecast__description">{$this.props.data[0].description}</p>
+                    <div className="forecast__celsius">{$this.props.data[0].averageTemp}</div>
+                    <span className="forecast__fahrenheit">{Math.round($this.props.data[0].averageTemp * 1.8+32)}</span>
+                </div>
+            </section>
 
             );
         }

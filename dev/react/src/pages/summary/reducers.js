@@ -20,6 +20,7 @@ export default function summaryReducer(state = {}, action = '') {
                 loading: false,
                 success: false,
                 payload: {
+                    response: action.payload.response,
                     message: action.payload.message
                 }
             };

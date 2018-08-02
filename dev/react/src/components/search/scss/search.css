@@ -53,6 +53,61 @@
 /*
   Icon Container sizing
 */
+/*
+  Usage:
+  @include placeholder {
+    font-style: italic;
+    color: black;
+  }
+*/
+/*
+  Returns a media queries which scales the units relative to the xs and lg values
+  Remember, dont be lazy when using this. If you've got other things that need be
+  in media queries for the same element, dont use this.
+
+  Usage: @include scale-pixels('margin-top', 25px, 125px);
+
+  Returns:
+
+  padding:25px
+
+  @media (min-width:768px){
+    padding:50px;
+  }
+
+  @media (min-width:992px){
+    padding:80px;
+  }
+
+  @media (min-width:1200px){
+    padding:115px;
+  }
+
+  @media (min-width:1500px){
+    padding:125px;
+  }
+*/
+/*
+  Pass in a colour and it gives you a button, BOOM.
+*/
+/*
+  Pass in 2 colours and it gives you a button width a gradient, BOOM.
+*/
+/*
+  Bootstrap size mixins
+*/
+/*
+ Viewport sized typography with minimum and maximum values
+
+ @param {Number}   $min         - Minimum font size (px)
+ @param {Number}   $max         - Maximum font size (px)
+
+  Example scss - 2.79vw font size (with 53px fallback),
+  @include responsive-font(20px, 53px);
+*/
+/*
+  Icon Container sizing
+*/
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 400; }
@@ -194,34 +249,55 @@ h1, h2, h3, h4, h5, h6 {
 .heading2 {
   font-weight: 400; }
 
-* {
-  outline: 0 !important; }
-
-html {
-  height: auto; }
-
-body {
-  height: 100%;
-  color: #222222;
-  font-smooth: always;
-  -webkit-font-smoothing: antialiased;
-  font-family: "Roboto";
-  font-size: 15px;
-  font-size: 0.78125vw;
-  font-weight: 300;
-  letter-spacing: -0.02em; }
-  @media (max-width: 1792px) {
-    body {
-      font-size: 14px; } }
-  @media (min-width: 1920px) {
-    body {
-      font-size: 15px; } }
-
-a, a:hover, a:visited, a:focus {
-  text-decoration: none; }
-
-ul {
-  margin: 0; }
-
-p {
-  line-height: 1em; }
+header {
+  position: relative;
+  width: 100%;
+  display: block;
+  z-index: 2; }
+  header .row {
+    padding: 15px 20px;
+    display: table;
+    width: 100%;
+    /**
+   * search
+   * Search Form
+   */ }
+    header .row .inner {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%); }
+    header .row .search {
+      height: 4em; }
+      header .row .search__input, header .row .search__input--big {
+        height: 2em;
+        padding: 2em;
+        width: 100%;
+        border: none;
+        border-radius: 10px;
+        background: #f3f3f3;
+        color: #757575;
+        font-size: 1em;
+        font-family: "Roboto";
+        appearance: none;
+        box-shadow: none !important; }
+        header .row .search__input::placeholder, header .row .search__input--big::placeholder {
+          color: #757575;
+          opacity: 0.9; }
+        header .row .search__input--big {
+          font-size: 3em; }
+      header .row .search__submit {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #fff;
+        height: 100%;
+        background: #626262;
+        background: linear-gradient(0deg, #626262 0%, #696a6c 2%, #7a7b7d 35%, #8c9090 96%, #7c7d7f 100%);
+        appearance: none;
+        border: none;
+        border-radius: 0 10px 10px 0;
+        padding: 0 30px;
+        font-weight: 500; }

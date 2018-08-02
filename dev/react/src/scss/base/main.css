@@ -54,23 +54,22 @@
   Icon Container sizing
 */
 .main {
-  padding: 8em 20px 20px 20px;
-  min-height: 20vh; }
-  .main .loading {
-    margin: 0 auto;
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    height: 100%; }
-  @media (max-width: 767px) {
-    .main {
-      padding-top: 12em; } }
-  @media (min-width: 768px) {
-    .main {
-      padding-top: 8em; } }
-  @media (min-width: 992px) {
-    .main {
-      padding-top: 8em; } }
-  .main .notice {
-    font-size: 1.5em;
-    text-align: center; }
+  padding: 20px;
+  min-height: 20vh;
+  /**
+   * main
+   * Search Form
+   */ }
+  .main .row {
+    margin: -3px; }
+  .main .main {
+    height: 4em; }
+    .main .main__loading {
+      margin: 0 auto;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      height: 100%; }
+    .main .main__notice {
+      font-size: 1.5em;
+      text-align: center; }

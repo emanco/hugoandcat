@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 
 import {getData} from "./actions";
 import ForecastComponent from "../../components/forecast/component";
+import SearchView from "../../components/search/view";
 
 import moment from 'moment';
 
-//import $ from 'jquery';
+import Ionicon from 'react-ionicons';
 
 
 
@@ -19,7 +20,7 @@ class Summarypage extends Component {
     }
 
     componentDidMount() {
-        console.log('mounted');
+        // console.log('mounted');
     }
 
     componentWillReceiveProps(nextProps) {
@@ -49,17 +50,36 @@ class Summarypage extends Component {
       if (this.props.loading === true || typeof this.props.payload === 'undefined') {
           return (
               <div>
-                  Loading...
+                  <SearchView/>
+
+                  <div className="main container">
+                      <div className="row">
+                          <div className="main__loading">
+                              <p> <Ionicon icon="ios-sync" fontSize="90px" color="#b2b2b2" rotate={true} /></p>
+                          </div>
+                      </div>
+                  </div>
               </div>
           );
       }
 
-      if (this.props.success === false) {
+
+      if (this.props.success === false ) {
+
+          let $notice = this.props.payload.response.status === 404 ? 'Ooops, it seems like this location does not exist on planet earth!' : '<strong>Error:</strong> '+this.props.payload.message;
+
           return (
               <div>
-                  <p><strong>Error:</strong> {this.props.payload.message}</p>
+                  <SearchView/>
+
+                  <div className="main container">
+                      <div className="row">
+                          <p className="main__notice">{$notice}</p>
+                      </div>
+                  </div>
               </div>
           );
+
       } else {
 
           // prepare data in day groups as the free API does not provide daily forecasts, might be part of the test? ;)
@@ -84,71 +104,80 @@ class Summarypage extends Component {
       return (
           <div>
 
-              {$days.map(function(day, i){
+              <SearchView/>
 
-                  let $date = '',           // store the timestamp
-                      $weekDay = '',        // stores the weekday
-                      $temps = [],          // store all temperatures
-                      $weatherTitles = [],  // store all weather titles
-                      $weatherDescrs = [],  // store all weather descriptions
-                      $weatherIcons = [],   // store all weather icons
-                      $weatherClouds = [],
-                      average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;  // calculates average
 
-                  day.forEach(function(data, i){
-                      $weekDay = moment(data.dt_txt).format("dddd Do");
-                      $date = $date === '' ? data.dt_txt : $date;
+              <div className="main container">
+                  <div className="row">
 
-                      let temp = data.main.temp - 273.15,               // convert kelvin into celsius
-                          weatherTitle = data.weather[0].main,          // stores titles separately as they might have different descriptions
-                          weatherDescr = data.weather[0].description,   // same as above
-                          weatherCloud = data.clouds.all,
-                          icon = data.weather[0].icon;                  // same for the icon stored as string
+                  {$days.map(function(day, i){
 
-                      $weatherTitles.push(weatherTitle);
-                      $weatherDescrs.push(weatherDescr);
-                      $weatherClouds.push(weatherCloud);
-                      $weatherIcons.push(icon);
-                      $temps.push(temp);
+                      let $date = '',           // store the timestamp
+                          $weekDay = '',        // stores the weekday
+                          $temps = [],          // store all temperatures
+                          $weatherTitles = [],  // store all weather titles
+                          $weatherDescrs = [],  // store all weather descriptions
+                          $weatherIcons = [],   // store all weather icons
+                          $weatherClouds = [],
+                          average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;  // calculates average
 
-                      // console.log(data);
-                  });
+                      day.forEach(function(data, i){
+                          $weekDay = moment(data.dt_txt).format("dddd Do");
+                          $date = $date === '' ? data.dt_txt : $date;
 
-                  let $averageTemp = Math.round(average($temps)),
-                      $dailyWeatherTitle = mode($weatherTitles),
-                      $dailyWeatherDescr = mode($weatherDescrs),
-                      $dailyWeatherIcon = mode($weatherIcons),
-                      $dailyWeatherClouds = average($weatherClouds);
+                          let temp = data.main.temp - 273.15,               // convert kelvin into celsius
+                              weatherTitle = data.weather[0].main,          // stores titles separately as they might have different descriptions
+                              weatherDescr = data.weather[0].description,   // same as above
+                              weatherCloud = data.clouds.all,
+                              icon = data.weather[0].icon;                  // same for the icon stored as string
 
-                  // Correct Clear Sky if there is a certain amount of clouds during the day
-                  if ($dailyWeatherClouds > 10 && $dailyWeatherTitle === 'Clear') {
-                      $dailyWeatherTitle = 'Clouds';
-                      $dailyWeatherDescr = 'few clouds';
-                      $dailyWeatherIcon = '02d'
-                  }
+                          $weatherTitles.push(weatherTitle);
+                          $weatherDescrs.push(weatherDescr);
+                          $weatherClouds.push(weatherCloud);
+                          $weatherIcons.push(icon);
+                          $temps.push(temp);
 
-                  console.log($dailyWeatherClouds);
+                          // console.log(data);
+                      });
 
-                  // console.log($weekDay);
-                  // console.log($averageTemp);
-                  //
-                  // console.log($dailyWeatherTitle);
-                  // console.log($dailyWeatherDescr);
-                  // console.log($dailyWeatherIcon);
+                      let $averageTemp = Math.round(average($temps)),
+                          $dailyWeatherTitle = mode($weatherTitles),
+                          $dailyWeatherDescr = mode($weatherDescrs),
+                          $dailyWeatherIcon = mode($weatherIcons),
+                          $dailyWeatherClouds = average($weatherClouds);
 
-                  // create custom data into array
-                  const $data = [{
-                      'date':$date,
-                      'weekDay':$weekDay,
-                      'averageTemp':$averageTemp,
-                      'title':$dailyWeatherTitle,
-                      'description':$dailyWeatherDescr,
-                      'icon':$dailyWeatherIcon
-                  }];
+                      // Correct Clear Sky if there is a certain amount of clouds during the day
+                      if ($dailyWeatherClouds > 10 && $dailyWeatherTitle === 'Clear') {
+                          $dailyWeatherTitle = 'Clouds';
+                          $dailyWeatherDescr = 'few clouds';
+                          $dailyWeatherIcon = '02d'
+                      }
 
-                  // parse it into component for display
-                  return <ForecastComponent key={i} data={$data}/>;
-              })}
+                      // console.log($dailyWeatherClouds);
+
+                      // console.log($weekDay);
+                      // console.log($averageTemp);
+                      //
+                      // console.log($dailyWeatherTitle);
+                      // console.log($dailyWeatherDescr);
+                      // console.log($dailyWeatherIcon);
+
+                      // create custom data into array
+                      const $data = [{
+                          'date':$date,
+                          'weekDay':$weekDay,
+                          'averageTemp':$averageTemp,
+                          'title':$dailyWeatherTitle,
+                          'description':$dailyWeatherDescr,
+                          'icon':$dailyWeatherIcon
+                      }];
+
+                      // parse it into component for display
+                      return <ForecastComponent key={i} data={$data}/>;
+                  })}
+
+                  </div>
+              </div>
 
           </div>
 

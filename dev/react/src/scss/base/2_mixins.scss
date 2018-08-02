@@ -344,3 +344,70 @@
     font-style: $style;
   }
 }
+
+
+// Gradient mixin for Forecasts
+@mixin linearGradient($top, $bottom){
+  background: $top; /* Old browsers */
+  background: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  $top 0%,$bottom 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+
+// BEM Mixins
+
+$bem-element-separator: '__' !default;
+$bem-modifier-separator: '--' !default;
+
+// BEM: Block (New)
+@mixin new($name, $description) {
+  /**
+   * #{$name}
+   * #{$description}
+   */
+  .#{$name} {
+    @content;
+  }
+}
+
+// BEM: Element (Has)
+@mixin has($name) {
+  @at-root {
+    $selector: nth(&, 1);
+    $parent: nth($selector, length($selector));
+
+    @if str-index($parent, $bem-element-separator) {
+      @error '#{$parent} is already an element';
+    }
+
+    #{&}#{$bem-element-separator}#{$name} {
+      @content;
+    }
+  }
+}
+
+// BEM: Modifier (When)
+@mixin when($name) {
+  @at-root {
+    $selector: nth(&, 1);
+    $parent: nth($selector, length($selector));
+
+    @if str-index($parent, $bem-modifier-separator) {
+      @error '#{$parent} is already modified';
+    }
+
+    #{$parent}#{$bem-modifier-separator}#{$name} {
+      @extend #{$parent};
+    }
+
+    // Add the modifier and rules
+    #{&}#{$bem-modifier-separator}#{$name} {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+@import "./../../../scss/base/1_vars.scss";
+@import "./../../../scss/base/2_mixins.scss";
+@import "./../../../scss/base/3_typography.scss";
+
+header {
+  position: relative;
+  width: 100%;
+  display: block;
+  z-index: 2;
+
+  .row {
+    padding: 15px 20px;
+    display: table;
+    width: 100%;
+
+    .inner {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+
+      @include vertical-align();
+    }
+
+
+    @include new('search', 'Search Form') {
+      height: 4em;
+
+      @include has('input') {
+        height: 2em;
+        padding:2em;
+        width: 100%;
+        border: none;
+        border-radius:10px;
+        background: #f3f3f3;
+        color: #757575;
+        font-size: 1em;
+        font-family: $font-heading;
+        appearance:none;
+        box-shadow: none!important;
+
+        &::placeholder {
+          color: #757575;
+          opacity: 0.9;
+        }
+
+        @include when('big') {
+          font-size: 3em;
+        }
+      }
+
+      @include has('submit') {
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #fff;
+        height: 100%;
+        background: rgb(98,98,98);
+        background: linear-gradient(0deg, rgba(98,98,98,1) 0%, rgba(105,106,108,1) 2%, rgba(122,123,125,1) 35%, rgba(140,144,144,1) 96%, rgba(124,125,127,1) 100%);
+        appearance:none;
+        border: none;
+        border-radius: 0 10px 10px 0;
+        padding:0 30px;
+        font-weight: 500;
+      }
+    }
+
+
+  }
+
+}

@@ -1,98 +1,230 @@
+@import "./../../../scss/base/1_vars.scss";
 @import "./../../../scss/base/2_mixins.scss";
+@import "./../../../scss/base/3_typography.scss";
 
-.products-container {
+.forecast {
+  //height: 400px;
+  position: relative;
+  display: block;
 
-  .item {
-
-    position: relative;
-
-    .inner {
-      border: 1px solid #f2f2f2;
-      position:relative;
-      left: 0;
-      top: 0;
-      width: 100%;
-      padding: 20px;
-      z-index: 0;
-      background-color: #fff;
-      transition: all 0.3s ease-out;
-
-      @include xs {
-        height: auto;
-        padding-bottom: 150px;
-      }
-
-      @include sm {
-        height: auto;
-        padding-bottom: 150px;
-      }
-
-      @include md {
-        //height: 330px;
-        padding-bottom: 160px;
-      }
-
-      .picture {
-        width: 100%;
-        padding-top: 100%;
-        background-size: contain;
-        background-position: center center;
-        background-repeat: no-repeat;
-      }
-
-      .product-infos {
-        margin-top: 1em;
-        position: absolute;
-        bottom: 10px;
-        width: calc(100% - 40px);
-
-        height: 150px;
-
-        @include md {
-          height: 160px;
-        }
-
-        a {
-          color: #000;
-          &:hover {
-            color: #222222;
-          }
-        }
-
-        p {
-          font-size: 15px;
-        }
-
-        span {
-          font-size: 12px;
-          text-transform: uppercase;
-          font-weight: 200;
-          line-height: 1em;
-          margin: 1em 0;
-          display: inline-block;
-        }
-
-        .price {
-          width: 100%;
-          text-align: right;
-          font-weight: 400;
-          font-size: 1.2em;
-
-          position: absolute;
-          bottom: 0;
+  @include md {
+    &:first-child {
+      @include new('forecast', 'Forecast Section') {
+        @include has('wrapper') {
+          border-radius:10px 0 0 10px;
+          overflow: hidden;
         }
       }
     }
 
+    &:last-child {
+      @include new('forecast', 'Forecast Section') {
+        @include has('wrapper') {
+          border-radius:0 10px 10px 0;
+          overflow: hidden;
+        }
+      }
+    }
+  }
 
-    &:hover {
-      .inner {
-        transform: scale(1.15);
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        z-index: 1;
+  
+  @include new('forecast', 'Forecast Section') {
+
+    @include has('wrapper') {
+      //background-color: orange;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      z-index: 0;
+      margin: 3px;
+      padding: 50px 40px 140px 40px;
+
+      //padding-top: 200%;
+      //height: 1px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: -4.5em;
+        left: -4em;
+        width: 18em;
+        height: 18em;
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0.2;
+        z-index: -1;
+      }
+
+      @include when('clearsky') {
+        @include linearGradient(#ff9872, #ffdb4e);
+        &:before { background-image: url('../../../img/icons/01d.svg'); }
+      }
+
+      @include when('fewclouds') {
+        @include linearGradient(#03B9A5, #30ECEB);
+        &:before { background-image: url('../../../img/icons/02d.svg'); }
+      }
+
+      @include when('scatteredclouds') {
+        @include linearGradient(#3E93B2, #44EDEC);
+        &:before { background-image: url('../../../img/icons/03d.svg'); }
+      }
+
+      @include when('brokenclouds') {
+        @include linearGradient(#3E93B2, #44EDEC);
+        &:before { background-image: url('../../../img/icons/04d.svg'); }
+      }
+
+      @include when('overcastclouds') {
+        @include linearGradient(#3E93B2, #44EDEC);
+        &:before { background-image: url('../../../img/icons/04d.svg'); }
+      }
+
+      @include when('showerrain') {
+        @include linearGradient(#066E94, #6fd4fb);
+        &:before { background-image: url('../../../img/icons/09d.svg'); }
+      }
+
+      @include when('lightrain') {
+        @include linearGradient(#066E94, #6fd4fb);
+        &:before { background-image: url('../../../img/icons/10d.svg'); }
+      }
+
+      @include when('moderaterain') {
+        @include linearGradient(#066E94, #6fd4fb);
+        &:before { background-image: url('../../../img/icons/10d.svg'); }
+      }
+
+      @include when('rain') {
+        @include linearGradient(#24A0CD, #6fd4fb);
+        &:before { background-image: url('../../../img/icons/10d.svg'); }
+      }
+
+      @include when('thunderstorm') {
+        @include linearGradient(#0A465D, #61A1BA);
+        &:before { background-image: url('../../../img/icons/11d.svg'); }
+      }
+
+      @include when('snow') {
+        @include linearGradient(#74A3DE, #DCEDF4);
+        &:before { background-image: url('../../../img/icons/13d.svg'); }
+      }
+
+      @include when('mist') {
+        @include linearGradient(#919494, #D6D8D9);
+        &:before { background-image: url('../../../img/icons/50d.svg'); }
+      }
+
+    }
+
+    @include has('day') {
+      color: #fff;
+      font-family: $font;
+      width: 100%;
+      display: block;
+      font-weight: 400;
+      font-size: 1.3em;
+    }
+
+    @include has('icon') {
+      height: 80px;
+      width: 80px;
+      background-repeat: no-repeat;
+      margin: 0 auto;
+      display: inline-block;
+      background-size:cover;
+      margin-top:4.5em;
+      margin-bottom: 1em;
+
+      @include when('clearsky') {
+        background-image: url('../../../img/icons/01d.svg');
+      }
+
+      @include when('fewclouds') {
+        background-image: url('../../../img/icons/02d.svg');
+      }
+
+      @include when('scatteredclouds') {
+        background-image: url('../../../img/icons/03d.svg');
+      }
+
+      @include when('brokenclouds') {
+        background-image: url('../../../img/icons/04d.svg');
+      }
+
+      @include when('overcastclouds') {
+        background-image: url('../../../img/icons/04d.svg');
+      }
+
+      @include when('showerrain') {
+        background-image: url('../../../img/icons/09d.svg');
+      }
+
+      @include when('lightrain') {
+        background-image: url('../../../img/icons/10d.svg');
+      }
+
+      @include when('moderaterain') {
+        background-image: url('../../../img/icons/10d.svg');
+      }
+
+      @include when('rain') {
+        background-image: url('../../../img/icons/10d.svg');
+      }
+
+      @include when('thunderstorm') {
+        background-image: url('../../../img/icons/11d.svg');
+      }
+
+      @include when('snow') {
+        background-image: url('../../../img/icons/13d.svg');
+      }
+
+      @include when('mist') {
+        background-image: url('../../../img/icons/50d.svg');
+      }
+    }
+
+    @include has('description') {
+      color: #fff;
+      font-family: $font;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 0.18em;
+      font-size: 1.3em;
+      height: 2em;
+      line-height: 1em;
+      margin-top: 0.6em;
+      margin-bottom: 0.5em;
+    }
+
+    @include has('celsius') {
+      color: #fff;
+      font-family: $font-condensed;
+      font-size: 5.5em;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1em;
+
+      &:after {
+        font-weight: 100;
+        content: '°c';
+        letter-spacing: -0.1em;
+        font-size: 0.65em;
+      }
+
+    }
+
+    @include has('fahrenheit') {
+      color: #fff;
+      font-family: $font;
+      font-size: 1.3em;
+
+      &:after {
+        font-weight: 100;
+        content: '°F';
       }
     }
 
   }
-  
 }

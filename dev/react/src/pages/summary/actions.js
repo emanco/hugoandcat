@@ -15,15 +15,15 @@ const getForecast = (location) => {
     } else {
         return loader.get('forecast?q=London,uk&cnt='+limit+'&APPID='+key);
     }
-}
+};
 
 const getData = (location) => {
     return {
         type: 'FETCH_DATA',
-        payload: axios.all([getForecast(location)/*, getOrders(id), getPrescriptions(id)*/])
+        payload: axios.all([getForecast(location)])
     }
 };
 
 
 
-export { getData, getForecast/*, getCustomer, getOrders*/ };
+export { getData, getForecast };

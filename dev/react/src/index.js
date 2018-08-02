@@ -36,7 +36,8 @@ ReactDOM.render(
             <div>
                 <Switch>
                     <Route exact path="/" component={Summarypage} />
-                    <Route exact path="/search/:location" component={Summarypage} />
+                    <Route exact path="/search/" component={Summarypage} />
+                    <Route path="/search/:location" component={Summarypage} />
                 </Switch>
             </div>
         </Router>

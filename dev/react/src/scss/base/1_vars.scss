@@ -40,8 +40,10 @@ $box-shadow: 0 0 3px 3px rgba(200,200,200,.3);
 $box-shadow-on-dark: 0 0 9px 0 rgba(40,40,40,.3);
 
 //Typography
-$font-body:'Graphik';
-$font-heading: $font-body;
+$font: 'Roboto';
+$font-condensed: 'Roboto Condensed';
+$font-body:$font;
+$font-heading: $font;
 
 $font-weights: (
         'extralight': 200,
