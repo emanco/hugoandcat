@@ -7,7 +7,7 @@
   position: relative;
   display: block;
 
-  @include md {
+  @include sm {
     &:first-child {
       @include new('forecast', 'Forecast Section') {
         @include has('wrapper') {
@@ -127,8 +127,8 @@
     }
 
     @include has('icon') {
-      height: 80px;
-      width: 80px;
+      height: 5.5em;
+      width: 5.5em;
       background-repeat: no-repeat;
       margin: 0 auto;
       display: inline-block;

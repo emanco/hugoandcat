@@ -29,7 +29,7 @@ class ForecastView extends Component {
 
         return (
 
-            <section className="col-sm-6 col-md-3 forecast">
+            <section className="col-sm-3 col-md-3 forecast">
                 <div className={$wrapper}>
                     <Moment format="dddd Do" date={$this.props.data[0].date} filter={toToday} className="forecast__day"/>
                     {/*<h4 className="forecast__title">{$this.props.data[0].title}</h4>*/}

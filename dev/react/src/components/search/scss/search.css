@@ -255,13 +255,16 @@ header {
   display: block;
   z-index: 2; }
   header .row {
-    padding: 15px 20px;
+    padding: 15px 4px;
     display: table;
     width: 100%;
     /**
    * search
    * Search Form
    */ }
+    @media (min-width: 992px) {
+      header .row {
+        padding: 15px 20px; } }
     header .row .inner {
       display: inline-block;
       vertical-align: middle;
@@ -272,23 +275,24 @@ header {
     header .row .search {
       height: 5em;
       margin-bottom: 0; }
-      header .row .search__input, header .row .search__input--big {
+      header .row .search__input {
         height: 2em;
         padding: 1.6em 1.4em;
         width: 100%;
-        border: none;
         border-radius: 10px;
         background: #f3f3f3;
         color: #757575;
         font-size: 1.4em;
         font-family: "Roboto";
         appearance: none;
-        box-shadow: none !important; }
-        header .row .search__input::placeholder, header .row .search__input--big::placeholder {
+        box-shadow: none !important;
+        border: 1px solid rgba(0, 0, 0, 0);
+        transition: all 0.5s ease-out; }
+        header .row .search__input:focus {
+          border: 1px solid rgba(0, 0, 0, 0.2) !important; }
+        header .row .search__input::placeholder {
           color: #757575;
           opacity: 0.9; }
-        header .row .search__input--big {
-          font-size: 3em; }
       header .row .search__submit {
         position: absolute;
         right: 0;
@@ -317,21 +321,8 @@ header {
         padding: 0 2.4em;
         font-weight: 600;
         font-size: 1.4em;
-        transition: all 0.5s ease-out; }
+        transition: opacity 0.5s ease-out;
+        display: inline-block;
+        transform: translateZ(0); }
         header .row .search__submit:hover {
-          background: #909494;
-          /* Old browsers */
-          background: -moz-linear-gradient(top, #909494 0%, #565656 100%);
-          /* FF3.6+ */
-          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #909494), color-stop(100%, #565656));
-          /* Chrome,Safari4+ */
-          background: -webkit-linear-gradient(top, #909494 0%, #565656 100%);
-          /* Chrome10+,Safari5.1+ */
-          background: -o-linear-gradient(top, #909494 0%, #565656 100%);
-          /* Opera 11.10+ */
-          background: -ms-linear-gradient(top, #909494 0%, #565656 100%);
-          /* IE10+ */
-          background: linear-gradient(to bottom, #909494 0%, #565656 100%);
-          /* W3C */
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
-          /* IE6-9 */ }
+          opacity: 0.7; }

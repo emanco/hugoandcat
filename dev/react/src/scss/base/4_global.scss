@@ -14,7 +14,7 @@ body{
   font-smooth:always;
   -webkit-font-smoothing: antialiased;
   font-family: $font-body;
-  @include responsive-font($font-size-xs, 15px);
+  @include responsive-font($font-size-xs, 14px);
   font-weight:font-weight('light');
   letter-spacing: -0.02em;
 }

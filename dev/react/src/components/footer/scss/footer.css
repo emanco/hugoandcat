@@ -1,0 +1,18 @@
+footer {
+  width: 100%;
+  color: #333;
+  text-align: center;
+  padding: 40px 15px; }
+  footer small {
+    font-family: "Roboto";
+    font-size: 14px;
+    opacity: 0.4; }
+    footer small > a {
+      color: #333;
+      transition: all 0.5s ease-out; }
+      footer small > a:hover {
+        color: #000; }
+  footer svg {
+    height: 1.1em;
+    width: 1.1em;
+    transform: translateY(2px); }

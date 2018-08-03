@@ -257,7 +257,7 @@ h1, h2, h3, h4, h5, h6 {
    * forecast
    * Forecast Section
    */ }
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     .forecast:first-child {
       /**
    * forecast
@@ -528,8 +528,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     font-size: 1.3em; }
   .forecast .forecast__icon, .forecast .forecast__icon--clearsky, .forecast .forecast__icon--fewclouds, .forecast .forecast__icon--scatteredclouds, .forecast .forecast__icon--brokenclouds, .forecast .forecast__icon--overcastclouds, .forecast .forecast__icon--showerrain, .forecast .forecast__icon--lightrain, .forecast .forecast__icon--moderaterain, .forecast .forecast__icon--rain, .forecast .forecast__icon--thunderstorm, .forecast .forecast__icon--snow, .forecast .forecast__icon--mist {
-    height: 80px;
-    width: 80px;
+    height: 5.5em;
+    width: 5.5em;
     background-repeat: no-repeat;
     margin: 0 auto;
     display: inline-block;

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {getData} from "./actions";
 import ForecastComponent from "../../components/forecast/component";
 import SearchView from "../../components/search/view";
+import FooterView from "../../components/footer/view";
 
 import moment from 'moment';
 
@@ -59,6 +60,8 @@ class Summarypage extends Component {
                           </div>
                       </div>
                   </div>
+
+                  <FooterView/>
               </div>
           );
       }
@@ -77,6 +80,8 @@ class Summarypage extends Component {
                           <p className="main__notice">{$notice}</p>
                       </div>
                   </div>
+
+                  <FooterView/>
               </div>
           );
 
@@ -179,6 +184,7 @@ class Summarypage extends Component {
                   </div>
               </div>
 
+              <FooterView/>
           </div>
 
       );
