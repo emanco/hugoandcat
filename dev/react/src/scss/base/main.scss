@@ -3,6 +3,11 @@
 .main {
   padding: 0 20px;
   min-height: 20vh;
+  padding-top: 8em;
+
+  @include sm {
+    padding-top:0;
+  }
 
   .row {
     margin: -3px;
@@ -12,6 +17,7 @@
     height: 4em;
 
     @include has('loading') {
+      padding-top: 2em;
       margin: 0 auto;
       display: inline-block;
       text-align: center;

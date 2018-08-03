@@ -105,6 +105,16 @@
         &:before { background-image: url('../../../img/icons/11d.svg'); }
       }
 
+      @include when('lightsnow') {
+        @include linearGradient(#74A3DE, #DCEDF4);
+        &:before { background-image: url('../../../img/icons/13d.svg'); }
+      }
+
+      @include when('moderatesnow') {
+        @include linearGradient(#74A3DE, #DCEDF4);
+        &:before { background-image: url('../../../img/icons/13d.svg'); }
+      }
+
       @include when('snow') {
         @include linearGradient(#74A3DE, #DCEDF4);
         &:before { background-image: url('../../../img/icons/13d.svg'); }
@@ -174,6 +184,14 @@
 
       @include when('thunderstorm') {
         background-image: url('../../../img/icons/11d.svg');
+      }
+
+      @include when('lightsnow') {
+        background-image: url('../../../img/icons/13d.svg');
+      }
+
+      @include when('moderatesnow') {
+        background-image: url('../../../img/icons/13d.svg');
       }
 
       @include when('snow') {

@@ -56,15 +56,20 @@
 .main {
   padding: 0 20px;
   min-height: 20vh;
+  padding-top: 8em;
   /**
    * main
    * Search Form
    */ }
+  @media (min-width: 768px) {
+    .main {
+      padding-top: 0; } }
   .main .row {
     margin: -3px; }
   .main .main {
     height: 4em; }
     .main .main__loading {
+      padding-top: 2em;
       margin: 0 auto;
       display: inline-block;
       text-align: center;

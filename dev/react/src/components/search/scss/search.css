@@ -250,10 +250,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400; }
 
 header {
-  position: relative;
+  position: fixed;
   width: 100%;
   display: block;
   z-index: 2; }
+  @media (min-width: 768px) {
+    header {
+      position: relative; } }
   header .row {
     padding: 15px 4px;
     display: table;

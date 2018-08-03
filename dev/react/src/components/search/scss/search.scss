@@ -3,10 +3,14 @@
 @import "./../../../scss/base/3_typography.scss";
 
 header {
-  position: relative;
+  position: fixed;
   width: 100%;
   display: block;
   z-index: 2;
+
+  @include sm {
+    position:relative;
+  }
 
   .row {
     padding: 15px 4px;
