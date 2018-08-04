@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './scss/footer.css';
 import Ionicon from 'react-ionicons';
 
+
 class FooterView extends Component {
     render() {
 

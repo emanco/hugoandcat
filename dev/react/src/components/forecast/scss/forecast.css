@@ -257,6 +257,22 @@ h1, h2, h3, h4, h5, h6 {
    * forecast
    * Forecast Section
    */ }
+  .forecast:first-child {
+    /**
+   * forecast
+   * Forecast Section
+   */ }
+    .forecast:first-child .forecast__wrapper, .forecast:first-child .forecast__wrapper--clearsky, .forecast:first-child .forecast__wrapper--fewclouds, .forecast:first-child .forecast__wrapper--scatteredclouds, .forecast:first-child .forecast__wrapper--brokenclouds, .forecast:first-child .forecast__wrapper--overcastclouds, .forecast:first-child .forecast__wrapper--showerrain, .forecast:first-child .forecast__wrapper--lightrain, .forecast:first-child .forecast__wrapper--moderaterain, .forecast:first-child .forecast__wrapper--rain, .forecast:first-child .forecast__wrapper--thunderstorm, .forecast:first-child .forecast__wrapper--lightsnow, .forecast:first-child .forecast__wrapper--moderatesnow, .forecast:first-child .forecast__wrapper--snow, .forecast:first-child .forecast__wrapper--mist {
+      border-radius: 10px 10px 0 0;
+      overflow: hidden; }
+  .forecast:last-child {
+    /**
+   * forecast
+   * Forecast Section
+   */ }
+    .forecast:last-child .forecast__wrapper, .forecast:last-child .forecast__wrapper--clearsky, .forecast:last-child .forecast__wrapper--fewclouds, .forecast:last-child .forecast__wrapper--scatteredclouds, .forecast:last-child .forecast__wrapper--brokenclouds, .forecast:last-child .forecast__wrapper--overcastclouds, .forecast:last-child .forecast__wrapper--showerrain, .forecast:last-child .forecast__wrapper--lightrain, .forecast:last-child .forecast__wrapper--moderaterain, .forecast:last-child .forecast__wrapper--rain, .forecast:last-child .forecast__wrapper--thunderstorm, .forecast:last-child .forecast__wrapper--lightsnow, .forecast:last-child .forecast__wrapper--moderatesnow, .forecast:last-child .forecast__wrapper--snow, .forecast:last-child .forecast__wrapper--mist {
+      border-radius: 0 0 10px 10px;
+      overflow: hidden; }
   @media (min-width: 768px) {
     .forecast:first-child {
       /**
@@ -279,8 +295,11 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     text-align: center;
     z-index: 0;
-    margin: 3px;
-    padding: 50px 10px 145px 10px; }
+    margin: 2px;
+    padding: 10px; }
+    @media (min-width: 768px) {
+      .forecast .forecast__wrapper, .forecast .forecast__wrapper--clearsky, .forecast .forecast__wrapper--fewclouds, .forecast .forecast__wrapper--scatteredclouds, .forecast .forecast__wrapper--brokenclouds, .forecast .forecast__wrapper--overcastclouds, .forecast .forecast__wrapper--showerrain, .forecast .forecast__wrapper--lightrain, .forecast .forecast__wrapper--moderaterain, .forecast .forecast__wrapper--rain, .forecast .forecast__wrapper--thunderstorm, .forecast .forecast__wrapper--lightsnow, .forecast .forecast__wrapper--moderatesnow, .forecast .forecast__wrapper--snow, .forecast .forecast__wrapper--mist {
+        padding: 50px 10px 145px 10px; } }
     .forecast .forecast__wrapper:before, .forecast .forecast__wrapper--clearsky:before, .forecast .forecast__wrapper--fewclouds:before, .forecast .forecast__wrapper--scatteredclouds:before, .forecast .forecast__wrapper--brokenclouds:before, .forecast .forecast__wrapper--overcastclouds:before, .forecast .forecast__wrapper--showerrain:before, .forecast .forecast__wrapper--lightrain:before, .forecast .forecast__wrapper--moderaterain:before, .forecast .forecast__wrapper--rain:before, .forecast .forecast__wrapper--thunderstorm:before, .forecast .forecast__wrapper--lightsnow:before, .forecast .forecast__wrapper--moderatesnow:before, .forecast .forecast__wrapper--snow:before, .forecast .forecast__wrapper--mist:before {
       content: '';
       position: absolute;
@@ -565,6 +584,18 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     font-weight: 400;
     font-size: 1.3em; }
+  .forecast .forecast__content {
+    width: 50%;
+    display: inline-grid; }
+    @media (min-width: 768px) {
+      .forecast .forecast__content {
+        width: 100%; } }
+  .forecast .forecast__temperature {
+    width: 50%;
+    display: inline-grid; }
+    @media (min-width: 768px) {
+      .forecast .forecast__temperature {
+        width: 100%; } }
   .forecast .forecast__icon, .forecast .forecast__icon--clearsky, .forecast .forecast__icon--fewclouds, .forecast .forecast__icon--scatteredclouds, .forecast .forecast__icon--brokenclouds, .forecast .forecast__icon--overcastclouds, .forecast .forecast__icon--showerrain, .forecast .forecast__icon--lightrain, .forecast .forecast__icon--moderaterain, .forecast .forecast__icon--rain, .forecast .forecast__icon--thunderstorm, .forecast .forecast__icon--lightsnow, .forecast .forecast__icon--moderatesnow, .forecast .forecast__icon--snow, .forecast .forecast__icon--mist {
     height: 5.5em;
     width: 5.5em;
@@ -572,8 +603,11 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
     display: inline-block;
     background-size: cover;
-    margin-top: 4.5em;
+    margin-top: 0.5em;
     margin-bottom: 1em; }
+    @media (min-width: 768px) {
+      .forecast .forecast__icon, .forecast .forecast__icon--clearsky, .forecast .forecast__icon--fewclouds, .forecast .forecast__icon--scatteredclouds, .forecast .forecast__icon--brokenclouds, .forecast .forecast__icon--overcastclouds, .forecast .forecast__icon--showerrain, .forecast .forecast__icon--lightrain, .forecast .forecast__icon--moderaterain, .forecast .forecast__icon--rain, .forecast .forecast__icon--thunderstorm, .forecast .forecast__icon--lightsnow, .forecast .forecast__icon--moderatesnow, .forecast .forecast__icon--snow, .forecast .forecast__icon--mist {
+        margin-top: 4.5em; } }
     .forecast .forecast__icon--clearsky {
       background-image: url("../../../img/icons/01d.svg"); }
     .forecast .forecast__icon--fewclouds {

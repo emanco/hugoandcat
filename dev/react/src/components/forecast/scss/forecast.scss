@@ -7,6 +7,24 @@
   position: relative;
   display: block;
 
+  &:first-child {
+    @include new('forecast', 'Forecast Section') {
+      @include has('wrapper') {
+        border-radius:10px 10px 0 0;
+        overflow: hidden;
+      }
+    }
+  }
+
+  &:last-child {
+    @include new('forecast', 'Forecast Section') {
+      @include has('wrapper') {
+        border-radius:0 0 10px 10px;
+        overflow: hidden;
+      }
+    }
+  }
+
   @include sm {
     &:first-child {
       @include new('forecast', 'Forecast Section') {
@@ -36,8 +54,14 @@
       overflow: hidden;
       text-align: center;
       z-index: 0;
-      margin: 3px;
-      padding: 50px 10px 145px 10px;
+      margin: 2px;
+
+      padding:10px;
+
+      @include sm {
+        padding: 50px 10px 145px 10px;
+      }
+
 
       //padding-top: 200%;
       //height: 1px;
@@ -136,6 +160,24 @@
       font-size: 1.3em;
     }
 
+    @include has('content') {
+      width: 50%;
+      display: inline-grid;
+
+      @include sm {
+        width: 100%;
+      }
+    }
+
+    @include has('temperature') {
+      width: 50%;
+      display: inline-grid;
+
+      @include sm {
+        width: 100%;
+      }
+    }
+
     @include has('icon') {
       height: 5.5em;
       width: 5.5em;
@@ -143,8 +185,12 @@
       margin: 0 auto;
       display: inline-block;
       background-size:cover;
-      margin-top:4.5em;
+      margin-top:0.5em;
       margin-bottom: 1em;
+
+      @include sm {
+        margin-top: 4.5em;
+      }
 
       @include when('clearsky') {
         background-image: url('../../../img/icons/01d.svg');
@@ -215,6 +261,7 @@
       margin-top: 0.6em;
       margin-bottom: 0.5em;
     }
+
 
     @include has('celsius') {
       color: #fff;

@@ -11,8 +11,6 @@ import moment from 'moment';
 
 import Ionicon from 'react-ionicons';
 
-
-
 class Summarypage extends Component {
 
     componentWillMount() {
@@ -114,7 +112,6 @@ class Summarypage extends Component {
 
               <div className="main container">
                   <div className="row">
-
                   {$days.map(function(day, i){
 
                       let $date = '',           // store the timestamp
@@ -180,7 +177,6 @@ class Summarypage extends Component {
                       // parse it into component for display
                       return <ForecastComponent key={i} data={$data}/>;
                   })}
-
                   </div>
               </div>
 

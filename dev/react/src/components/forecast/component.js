@@ -7,13 +7,19 @@ import ForecastView from "./view";
 
 class ForecastComponent extends Component {
 
-    componentWillMount() {
+    // componentWillMount() {
+    //
+    // }
+    //
+    // componentDidMount() {
+    //
+    // }
 
-    }
 
     render() {
+
         return (
-            <ForecastView data={this.props.data}/>
+           <ForecastView data={this.props.data}/>
         );
     }
 }
