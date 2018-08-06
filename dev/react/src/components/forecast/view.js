@@ -22,12 +22,13 @@ class ForecastView extends Component {
             }
         };
 
-        const $wrapper = "forecast__wrapper forecast__wrapper--"+($this.props.data[0].description.replace(/\s/g, "")),
+        const $section =  "col-xs-12 col-sm-3 col-md-3 forecast day-"+this.props.n,
+              $wrapper = "forecast__wrapper forecast__wrapper--"+($this.props.data[0].description.replace(/\s/g, "")),
               $icon = "forecast__icon forecast__icon--"+($this.props.data[0].description.replace(/\s/g, ""));
 
         return (
 
-                <section className="col-xs-12 col-sm-3 col-md-3 forecast" ref={c => this.container = c}>
+                <section className={$section}>
                     <div className={$wrapper}>
                             <Moment format="dddd Do" date={$this.props.data[0].date} filter={toToday} className="forecast__day"/>
                             {/*<h4 className="forecast__title">{$this.props.data[0].title}</h4>*/}
@@ -41,7 +42,7 @@ class ForecastView extends Component {
                                 <div className="forecast__celsius">{$this.props.data[0].averageTemp}</div>
                                 <span className="forecast__fahrenheit">{Math.round($this.props.data[0].averageTemp * 1.8+32)}</span>
                             </div>
-                             </div>
+                    </div>
                 </section>
             );
         }
