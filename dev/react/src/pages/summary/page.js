@@ -19,14 +19,13 @@ class Summarypage extends Component {
     }
 
     componentDidMount() {
-        // console.log('mounted');
+        // console.log('mount');
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.location.pathname !== this.props.location.pathname) {
             //console.log('next props: '+nextProps.location.pathname);
             this.props.dispatch(getData(nextProps.match.params.location));
-            //take action here
         }
     }
 
@@ -124,7 +123,7 @@ class Summarypage extends Component {
                           average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;  // calculates average
 
                       day.forEach(function(data, i){
-                          $weekDay = moment(data.dt_txt).format("dddd Do");
+                          $weekDay = moment(data.dt_txt).format("dddd Do"); // convert timestamp in readable weekday
                           $date = $date === '' ? data.dt_txt : $date;
 
                           let temp = data.main.temp - 273.15,               // convert kelvin into celsius
@@ -175,7 +174,7 @@ class Summarypage extends Component {
                       }];
 
                       // parse it into component for display
-                      return <ForecastComponent key={i} data={$data}/>;
+                      return <ForecastComponent key={i} n={i} data={$data}/>;
                   })}
                   </div>
               </div>
