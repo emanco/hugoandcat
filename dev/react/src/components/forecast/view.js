@@ -13,6 +13,7 @@ class ForecastView extends Component {
 
         let $this = this;
 
+        // Filter out today in timestamp
         const toToday = (d) => {
 
             if (d === moment().format("dddd Do")) {

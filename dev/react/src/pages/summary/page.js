@@ -1,15 +1,17 @@
+// Libraries
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
+import moment from 'moment';
+import Ionicon from 'react-ionicons';
 
+// Data Actions
 import {getData} from "./actions";
+
+// Components
 import ForecastComponent from "../../components/forecast/component";
 import SearchView from "../../components/search/view";
 import FooterView from "../../components/footer/view";
 
-import moment from 'moment';
-
-import Ionicon from 'react-ionicons';
 
 class Summarypage extends Component {
 
@@ -66,7 +68,7 @@ class Summarypage extends Component {
 
       if (this.props.success === false ) {
 
-          let $notice = this.props.payload.response.status === 404 ? 'Ooops, it seems like this location does not exist on planet earth!' : '<strong>Error:</strong> '+this.props.payload.message;
+          let $notice = this.props.payload.response.status === 404 ? 'Ooops, it seems like this location does not exist on planet earth!' : 'Error: '+this.props.payload.message;
 
           return (
               <div>
@@ -153,15 +155,6 @@ class Summarypage extends Component {
                           $dailyWeatherDescr = 'few clouds';
                           $dailyWeatherIcon = '02d'
                       }
-
-                      // console.log($dailyWeatherClouds);
-
-                      // console.log($weekDay);
-                      // console.log($averageTemp);
-                      //
-                      // console.log($dailyWeatherTitle);
-                      // console.log($dailyWeatherDescr);
-                      // console.log($dailyWeatherIcon);
 
                       // create custom data into array
                       const $data = [{

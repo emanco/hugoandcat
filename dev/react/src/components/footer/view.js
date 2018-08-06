@@ -7,11 +7,10 @@ class FooterView extends Component {
     render() {
 
         return (
-            <div>
-                <footer>
+            <footer>
+                    <hr/>
                     <small>© 2018 made with <Ionicon icon="md-heart" color="#333" /> by <a href="mailto:hello@emanuelemanco.com">Emanuele Manco</a> </small>
-                </footer>
-            </div>
+            </footer>
         );
     }
 }

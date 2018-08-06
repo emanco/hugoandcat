@@ -5,9 +5,11 @@ import ReactDOM from 'react-dom';
 // Include dumb component
 import ForecastView from "./view";
 
+// Transition wrappers
 import Transition from "react-transition-group/Transition"
 import TransitionGroup from "react-transition-group/TransitionGroup"
 
+// GSAP
 import {TweenMax} from 'gsap';
 
 
@@ -28,9 +30,9 @@ class ForecastComponent extends Component {
         this.el = {};
     }
 
-    componentWillMount() {
-
-    }
+    // componentWillMount() {
+    //
+    // }
 
     componentDidMount() {
 

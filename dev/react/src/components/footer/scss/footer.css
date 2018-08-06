@@ -1,9 +1,9 @@
 footer {
   width: 100%;
   color: #333;
-  text-align: center;
-  padding: 40px 15px; }
+  text-align: center; }
   footer small {
+    padding: 40px 15px;
     font-family: "Roboto";
     font-size: 14px;
     opacity: 0.4; }
